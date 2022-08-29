@@ -9,8 +9,8 @@
 # now = datetime.datetime.now()
 # print("The time right now is", now)
 
-import random
-import csv
+# import random
+# import csv
 
 # from datetime import datetime
 # # print(dir(csv))
@@ -76,52 +76,57 @@ with open(file_to_load) as election_data:
         # Add a vote to that candidate's count.
         candidates_votes[candidate_name] += 1
 
+    #Save results to our text file.
+    with open(file_to_save, "w") as txt_file:
+
+        election_results = (
+            f"\nElection Results\n"
+            f"---------------------------\n"
+            f"Total Votes: {total_votes:,}\n"
+            f"---------------------------\n")
+        
+        print(election_data, end="")
+
+        #Save the final vote count to the text file.
+        txt_file.write(election_results)
+
     # Get candidate's vote total percentage.
-    #1. iterate through the caiddate list.
+        #1. iterate through the caiddate list.
 
-    for candidate_name in candidates_votes:
+        for candidate_name in candidates_votes:
 
-        # 2. Retrieve vote count of candidate
-        votes = candidates_votes[candidate_name]
+            # 2. Retrieve vote count of candidate
+            votes = candidates_votes[candidate_name]
 
-        # 3. Calculate the percentage of votes.
-        vote_percentage = float(votes) / float(total_votes) * 100
+            # 3. Calculate the percentage of votes.
+            vote_percentage = float(votes) / float(total_votes) * 100
 
-        # 4. Print the candidate name and percentage of votes.
-        print(f"{candidate_name}: recieved {vote_percentage:.1f}% ({votes:,})\n")
-         
-        #Determine winning vote count and candidate
-        # 1. Determine if the votes are greater than the winning count.
+            # 4. Print the candidate name and percentage of votes.
+            candidate_results = (f"{candidate_name}: recieved {vote_percentage:.1f}% ({votes:,})\n")
+            # print each candidate their voter count, and percentage to the terminal.
+            print(candidate_results)
+            # Save the candidate results to our text file.
+            txt_file.write(candidate_results)
 
-        if (votes > winning_count) and (vote_percentage > winning_percentage):
+            #Determine winning vote count and candidate
+            # 1. Determine if the votes are greater than the winning count.
 
-            # 2. If true set winning_count = votes and winning percent= vote percent
-            winning_count = votes
-            winning_percentage = vote_percentage
+            if (votes > winning_count) and (vote_percentage > winning_percentage):
 
-            # 3. Set the winning_candidate equal to the candidate's name
-            winning_candidate = candidate_name 
-    winning_candidate_summary = (
-        f"------------------------\n"
-        f"Winner: {winning_candidate}\n"
-        f"Winning Vote Count: {winning_count:,}\n"
-        f"Winning Percentag: {winning_percentage:.1f}%\n"
-        f"------------------------\n"
-    )
-    print(winning_candidate_summary)
+                # 2. If true set winning_count = votes and winning percent= vote percent
+                winning_count = votes
+                winning_percentage = vote_percentage
 
+                # 3. Set the winning_candidate equal to the candidate's name
+                winning_candidate = candidate_name 
+        winning_candidate_summary = (
+            f"------------------------\n"
+            f"Winner: {winning_candidate}\n"
+            f"Winning Vote Count: {winning_count:,}\n"
+            f"Winning Percentag: {winning_percentage:.1f}%\n"
+            f"------------------------\n"
+        )
+        print(winning_candidate_summary)
+        txt_file.write(winning_candidate_summary)
+        
 
-
-
-
-
-# using the open fcn w/ the "w" mode we will write data to the file
-#use the open statement to open the file as a text file.
-# with open(file_to_save, "w") as txt_file:
-# # write some data to the file.
-#     # write three counties to the file.
-#     txt_file.write("Counties in the Elections\n------------------------\nArapahoe\nDenver\nJefferson")
-
-
-
-    
