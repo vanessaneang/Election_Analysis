@@ -62,11 +62,37 @@ Then in order to get the vote total percentage we needed to creat another for lo
             # print each candidate their voter count, and percentage to the terminal.
             print(candidate_results)
 ```
-![percentage_total_by_candidate](https://github.com/vanessaneang/Election_Analysis/blob/main/Resources/total_votes.png)
+![percentage_total_by_candidate](https://github.com/vanessaneang/Election_Analysis/blob/main/Resources/percentage_of_votes_by_candidates.png)
 
 ### Which candidate won the election, what was their vote count, and what was their percentage of the total votes?
 
-![winner](https://github.com/vanessaneang/Election_Analysis/blob/main/Resources/total_votes.png)
+To determine the winning candidate several variables needed to be defined and set to the right parameters before the "with open" function, winning_candidate as a string, winning_count as 0, and winning_percentage as 0.
+```ruby
+# create winning_count tracker and candidate
+winning_candidate = ""
+winning_count = 0
+winning_percentage = 0
+```
+Then within the for loop for the candidate options we needed to create a nested if condition to iterate the through the loop to determine the winning candidate name and percentage.
+
+```ruby
+            if (votes > winning_count) and (vote_percentage > winning_percentage):
+
+                # 2. If true set winning_count = votes and winning percent= vote percent
+                winning_count = votes
+                winning_percentage = vote_percentage
+
+                # 3. Set the winning_candidate equal to the candidate's name
+                winning_candidate = candidate_name 
+        winning_candidate_summary = (
+            f"------------------------\n"
+            f"Winner: {winning_candidate}\n"
+            f"Winning Vote Count: {winning_count:,}\n"
+            f"Winning Percentag: {winning_percentage:.1f}%\n"
+            f"------------------------\n"
+        )
+```
+![winner](https://github.com/vanessaneang/Election_Analysis/blob/main/Resources/winning_candidate.png)
 
 ## Election-Audit Summary
 In a summary statement, provide a business proposal to the election commission on how this script can be used—with some modifications—for any election. Give at least two examples of how this script can be modified to be used for other elections.
