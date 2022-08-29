@@ -16,6 +16,10 @@ Total votes was found by setting the vote count variable to 0 then for loops wer
 
 * Which county had the largest number of votes?
 
+  - **Denver** had the largest number of votes with **306,055 votes**.
+  - **Jefferson** was the second largest number of votes with **38,855 votes**.
+  - **Arapahoe** had the smalles number of votes with **24,801 votes**.
+
 * Provide a breakdown of the number of votes and the percentage of the total votes each candidate received.
 
 * Which candidate won the election, what was their vote count, and what was their percentage of the total votes?
