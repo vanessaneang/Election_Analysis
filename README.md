@@ -76,6 +76,8 @@ winning_percentage = 0
 Then within the for loop for the candidate options we needed to create a nested if condition to iterate the through the loop to determine the winning candidate name and percentage.
 
 ```ruby
+            #Determine winning vote count and candidate
+            # 1. Determine if the votes are greater than the winning count.
             if (votes > winning_count) and (vote_percentage > winning_percentage):
 
                 # 2. If true set winning_count = votes and winning percent= vote percent
@@ -95,4 +97,7 @@ Then within the for loop for the candidate options we needed to create a nested 
 ![winner](https://github.com/vanessaneang/Election_Analysis/blob/main/Resources/winning_candidate.png)
 
 ## Election-Audit Summary
+
+This script can be used for other elections by updating the path for the csv file to use the most current file and output the results into an excel file or csv instead so further analysis over trends throughout the years could be tracked to compare if there are specific candidate parties the constituents may choose. 
+
 In a summary statement, provide a business proposal to the election commission on how this script can be used—with some modifications—for any election. Give at least two examples of how this script can be modified to be used for other elections.
