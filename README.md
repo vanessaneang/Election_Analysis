@@ -98,6 +98,5 @@ Then within the for loop for the candidate options we needed to create a nested 
 
 ## Election-Audit Summary
 
-This script can be used for other elections by updating the path for the csv file to use the most current file and output the results into an excel file or csv instead so further analysis over trends throughout the years could be tracked to compare if there are specific candidate parties the constituents may choose. 
+This script can be used for other elections in a few ways: (1) by continuously updating the path for the csv file to use the most current file the most current election can be tracked and (2) change the output file to place the results into an excel file or csv instead so further analysis over trends throughout the years could be tracked to compare if there are specific candidate parties the constituents may choose, which can serve as a predictive election anlaysis model for the future. 
 
-In a summary statement, provide a business proposal to the election commission on how this script can be used—with some modifications—for any election. Give at least two examples of how this script can be modified to be used for other elections.
