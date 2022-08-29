@@ -14,11 +14,59 @@ Total votes was found by setting the vote count variable to 0 then for loops wer
 
 ### Provide a breakdown of the number of votes and the percentage of total votes for each county in the precinct.
 
+In order to find the breakdown of voters for each county we needed to create the variables to hold specific values, such as lists, and dictionaries. The hardest part of this code was making sure the for loops correlated to the correct outputs.
+
+```Ruby
+# Create county list, empty dictionary, county tracter, and Count county votes
+county_list = []
+total_county_votes = {}
+largest_county_vote = ""
+largest_vote = 0
+largest_vote_percentage = 0
+```
+```Ruby
+        for county_names in total_county_votes:
+
+            # 2. Retrieve vote count of candidate
+            county_votes = total_county_votes[county_names]
+
+            # 3. Calculate the percentage of votes.
+            county_vote_percentage = float(county_votes)/float(total_votes) * 100
+
+            county_results = (f"{county_names}: {county_vote_percentage:.1f}% ({county_votes:,})\n"
+            )
+            #To-do save to txt.file
+            print(county_results)
+            txt_file.write(county_results)         
+
+            #Determine winning vote count and candidate
+            # 1. Determine if the votes are greater than the winning count.
+
+            if (county_votes > largest_vote) and (county_vote_percentage > largest_vote_percentage):
+
+                # 2. If true set winning_count = votes and winning percent= vote percent
+                largest_vote = county_votes
+                largest_vote_percentage = county_vote_percentage
+
+                # 3. Set the winning_candidate equal to the candidate's name
+                largest_county_vote = county_names
+        largest_county_summary = (
+            f"------------------------\n"
+            f"Largest County Turnout: {largest_county_vote}\n"
+            f"------------------------\n"
+        )
+        print(largest_county_summary)
+        txt_file.write(largest_county_summary) 
+```        
+
 ### Which county had the largest number of votes?
 
-  - **Denver** had the largest number of votes with **306,055 votes**.
+  - **Denver** had the **largest** number of votes with **306,055 votes**.
   - **Jefferson** was the second largest number of votes with **38,855 votes**.
   - **Arapahoe** had the smalles number of votes with **24,801 votes**.
+  - 
+![total votes](https://github.com/vanessaneang/Election_Analysis/blob/main/Resources/county_turnout.png)
+
 
 ### Provide a breakdown of the number of votes and the percentage of the total votes each candidate received.
 
@@ -76,22 +124,20 @@ winning_percentage = 0
 Then within the for loop for the candidate options we needed to create a nested if condition to iterate the through the loop to determine the winning candidate name and percentage.
 
 ```ruby
-            #Determine winning vote count and candidate
-            # 1. Determine if the votes are greater than the winning count.
-            if (votes > winning_count) and (vote_percentage > winning_percentage):
-
-                # 2. If true set winning_count = votes and winning percent= vote percent
-                winning_count = votes
-                winning_percentage = vote_percentage
-
-                # 3. Set the winning_candidate equal to the candidate's name
-                winning_candidate = candidate_name 
-        winning_candidate_summary = (
-            f"------------------------\n"
-            f"Winner: {winning_candidate}\n"
-            f"Winning Vote Count: {winning_count:,}\n"
-            f"Winning Percentag: {winning_percentage:.1f}%\n"
-            f"------------------------\n"
+#Determine winning vote count and candidate
+# 1. Determine if the votes are greater than the winning count.
+  if (votes > winning_count) and (vote_percentage > winning_percentage):
+# 2. If true set winning_count = votes and winning percent= vote percent
+    winning_count = votes
+    winning_percentage = vote_percentage
+# 3. Set the winning_candidate equal to the candidate's name
+    winning_candidate = candidate_name 
+  winning_candidate_summary = (
+      f"------------------------\n"
+      f"Winner: {winning_candidate}\n"
+      f"Winning Vote Count: {winning_count:,}\n"
+      f"Winning Percentag: {winning_percentage:.1f}%\n"
+      f"------------------------\n"
         )
 ```
 ![winner](https://github.com/vanessaneang/Election_Analysis/blob/main/Resources/winning_candidate.png)
