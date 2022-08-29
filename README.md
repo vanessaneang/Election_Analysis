@@ -8,7 +8,9 @@ Employees from the Colorado Board of Elections need to go over the recent electi
 
 * How many votes were cast in this congressional election?
 
-
+Total votes was found by setting the vote count variable to 0 then for loops were used to add an additional vote to the counter.
+![total votes]
+(https://github.com/vanessaneang/VBA_Challenge/blob/main/Resources/VBA_Challenge_2017_notrefactored.png)
 * Provide a breakdown of the number of votes and the percentage of total votes for each county in the precinct.
 
 * Which county had the largest number of votes?
